@@ -502,7 +502,7 @@
     }
 
     .doc-visual {
-      height: clamp(230px, 27vw, 340px);
+      height: clamp(300px, 36vw, 440px);
       margin-top: 30px;
     }
 
@@ -698,6 +698,11 @@
       grid-template-columns: minmax(0, 0.82fr) minmax(320px, 1fr);
       gap: clamp(32px, 6vw, 76px);
       align-items: start;
+    }
+
+    .doc-intro,
+    .document-list {
+      grid-column: 1 / -1;
     }
 
     .document-list {
@@ -1221,7 +1226,7 @@
 
       <section class="section sand" id="documentos">
         <div class="container doc-grid">
-          <div>
+          <div class="doc-intro">
             <p class="eyebrow">Checklist</p>
             <h2>O que ajuda na análise do seu caso?</h2>
             <p class="section-lead">Quanto mais informações você reunir, mais precisa será a nossa avaliação inicial.</p>
