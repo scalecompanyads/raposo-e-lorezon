@@ -463,6 +463,49 @@
       gap: 16px;
     }
 
+    .media-panel {
+      position: relative;
+      overflow: hidden;
+      margin: 0;
+      border: 1px solid rgba(191, 197, 204, 0.34);
+      border-radius: 8px;
+      background: var(--blue-ice);
+      box-shadow: 0 24px 70px rgba(13, 26, 43, 0.12);
+    }
+
+    .media-panel::after {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, rgba(13, 26, 43, 0), rgba(13, 26, 43, 0.12));
+      content: "";
+      pointer-events: none;
+    }
+
+    .media-panel img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .wide-visual {
+      height: clamp(300px, 36vw, 440px);
+      margin: -10px 0 34px;
+    }
+
+    .analysis-stack {
+      display: grid;
+      gap: 18px;
+    }
+
+    .analysis-stack .media-panel {
+      height: clamp(230px, 26vw, 330px);
+    }
+
+    .doc-visual {
+      height: clamp(230px, 27vw, 340px);
+      margin-top: 30px;
+    }
+
     .card {
       min-height: 246px;
       padding: 26px;
@@ -838,6 +881,16 @@
         grid-template-columns: repeat(2, minmax(0, 1fr));
       }
 
+      .wide-visual,
+      .analysis-stack .media-panel,
+      .doc-visual {
+        height: auto;
+      }
+
+      .media-panel img {
+        aspect-ratio: 16 / 10;
+      }
+
       .step,
       .step:first-child,
       .step:last-child {
@@ -945,6 +998,11 @@
         grid-template-columns: 1fr;
       }
 
+      .wide-visual {
+        margin-top: 0;
+        margin-bottom: 24px;
+      }
+
       .card {
         min-height: auto;
         padding: 24px;
@@ -1030,6 +1088,9 @@
             </div>
             <p class="section-lead">Para muitas pessoas, um voo cancelado ou uma bagagem extraviada significa perder uma reunião, uma viagem planejada, uma diária de hotel, um compromisso familiar ou até horas de espera sem orientação clara. O problema não está apenas no atraso em si, mas na assistência oferecida e nos prejuízos causados.</p>
           </div>
+          <figure class="media-panel wide-visual">
+            <img src="assets/passageiro-atraso.png" alt="Passageiro em aeroporto analisando informações sobre seu voo pelo celular">
+          </figure>
           <div class="cards-grid">
             <article class="card">
               <span class="icon" aria-hidden="true">
@@ -1070,15 +1131,20 @@
             <h2>A viabilidade jurídica depende da análise dos fatos.</h2>
             <p class="section-lead">A possibilidade de reparação é avaliada a partir de fatores como o tempo do atraso, o motivo do problema, a assistência prestada pela companhia e os prejuízos que você sofreu. Por isso, antes de falar em indenização, o passo fundamental é organizar o que aconteceu e verificar as provas.</p>
           </div>
-          <div class="check-panel">
-            <ul class="check-list" aria-label="Fatores analisados">
-              <li><span class="mark" aria-hidden="true">✓</span><span>Tempo de atraso ou cancelamento</span></li>
-              <li><span class="mark" aria-hidden="true">✓</span><span>Comunicação feita pela companhia aérea</span></li>
-              <li><span class="mark" aria-hidden="true">✓</span><span>Comprovantes de gastos ou prejuízos</span></li>
-              <li><span class="mark" aria-hidden="true">✓</span><span>Protocolos, prints e bilhetes</span></li>
-              <li><span class="mark" aria-hidden="true">✓</span><span>Situação da bagagem e prazo de entrega</span></li>
-            </ul>
-            <a class="button" href="#contato"><svg class="wa-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M19.05 4.91A9.84 9.84 0 0 0 12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.33 4.96L2.05 22l5.25-1.38a9.9 9.9 0 0 0 4.74 1.21h.01c5.46 0 9.91-4.45 9.91-9.91a9.86 9.86 0 0 0-2.91-7.01ZM12.05 20.15h-.01a8.22 8.22 0 0 1-4.19-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.2 8.2 0 0 1-1.25-4.38c0-4.54 3.7-8.24 8.25-8.24a8.18 8.18 0 0 1 5.83 2.42 8.19 8.19 0 0 1 2.41 5.83c-.01 4.54-3.7 8.23-8.25 8.23Zm4.52-6.16c-.25-.12-1.47-.72-1.7-.81-.23-.08-.39-.12-.56.13-.16.25-.64.81-.78.98-.14.16-.29.18-.54.06-.25-.13-1.04-.38-1.99-1.22-.73-.65-1.23-1.46-1.37-1.71-.14-.25-.02-.38.11-.51.11-.11.25-.29.37-.43.12-.14.16-.25.25-.41.08-.16.04-.31-.02-.43-.06-.12-.56-1.35-.77-1.85-.2-.49-.41-.42-.56-.43h-.48c-.16 0-.43.06-.66.31-.23.25-.86.84-.86 2.05s.88 2.38 1 2.54c.12.16 1.73 2.64 4.2 3.7.59.25 1.04.4 1.4.52.59.19 1.12.16 1.54.1.47-.07 1.47-.6 1.67-1.18.21-.58.21-1.07.14-1.18-.06-.1-.22-.16-.47-.29Z"/></svg><span>Entender meus direitos agora</span></a>
+          <div class="analysis-stack">
+            <figure class="media-panel">
+              <img src="assets/analise-documental.png" alt="Documentos de viagem sendo analisados em mesa de trabalho jurídica">
+            </figure>
+            <div class="check-panel">
+              <ul class="check-list" aria-label="Fatores analisados">
+                <li><span class="mark" aria-hidden="true">✓</span><span>Tempo de atraso ou cancelamento</span></li>
+                <li><span class="mark" aria-hidden="true">✓</span><span>Comunicação feita pela companhia aérea</span></li>
+                <li><span class="mark" aria-hidden="true">✓</span><span>Comprovantes de gastos ou prejuízos</span></li>
+                <li><span class="mark" aria-hidden="true">✓</span><span>Protocolos, prints e bilhetes</span></li>
+                <li><span class="mark" aria-hidden="true">✓</span><span>Situação da bagagem e prazo de entrega</span></li>
+              </ul>
+              <a class="button" href="#contato"><svg class="wa-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M19.05 4.91A9.84 9.84 0 0 0 12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.33 4.96L2.05 22l5.25-1.38a9.9 9.9 0 0 0 4.74 1.21h.01c5.46 0 9.91-4.45 9.91-9.91a9.86 9.86 0 0 0-2.91-7.01ZM12.05 20.15h-.01a8.22 8.22 0 0 1-4.19-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.2 8.2 0 0 1-1.25-4.38c0-4.54 3.7-8.24 8.25-8.24a8.18 8.18 0 0 1 5.83 2.42 8.19 8.19 0 0 1 2.41 5.83c-.01 4.54-3.7 8.23-8.25 8.23Zm4.52-6.16c-.25-.12-1.47-.72-1.7-.81-.23-.08-.39-.12-.56.13-.16.25-.64.81-.78.98-.14.16-.29.18-.54.06-.25-.13-1.04-.38-1.99-1.22-.73-.65-1.23-1.46-1.37-1.71-.14-.25-.02-.38.11-.51.11-.11.25-.29.37-.43.12-.14.16-.25.25-.41.08-.16.04-.31-.02-.43-.06-.12-.56-1.35-.77-1.85-.2-.49-.41-.42-.56-.43h-.48c-.16 0-.43.06-.66.31-.23.25-.86.84-.86 2.05s.88 2.38 1 2.54c.12.16 1.73 2.64 4.2 3.7.59.25 1.04.4 1.4.52.59.19 1.12.16 1.54.1.47-.07 1.47-.6 1.67-1.18.21-.58.21-1.07.14-1.18-.06-.1-.22-.16-.47-.29Z"/></svg><span>Entender meus direitos agora</span></a>
+            </div>
           </div>
         </div>
       </section>
@@ -1160,6 +1226,9 @@
             <h2>O que ajuda na análise do seu caso?</h2>
             <p class="section-lead">Quanto mais informações você reunir, mais precisa será a nossa avaliação inicial.</p>
             <p class="note">Não tem todos os documentos em mãos? Não se preocupe. É possível fazer um relato inicial com as informações que você já possui.</p>
+            <figure class="media-panel doc-visual">
+              <img src="assets/checklist-viagem.png" alt="Documentos de viagem organizados para análise jurídica">
+            </figure>
           </div>
           <ul class="document-list" aria-label="Documentos necessários">
             <li><span class="mark" aria-hidden="true">✓</span><span>Cartão de embarque ou passagem</span></li>
