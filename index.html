@@ -418,6 +418,69 @@
       background: var(--ice);
     }
 
+    .case-strip {
+      position: relative;
+      overflow: hidden;
+      padding: 18px 0;
+      border-top: 1px solid rgba(250, 251, 252, 0.18);
+      border-bottom: 1px solid rgba(13, 26, 43, 0.16);
+      background:
+        linear-gradient(110deg, rgba(255, 255, 255, 0.88) 0%, rgba(191, 197, 204, 0.92) 16%, rgba(250, 251, 252, 0.96) 31%, rgba(143, 160, 179, 0.94) 48%, rgba(214, 222, 230, 0.98) 66%, rgba(74, 85, 99, 0.78) 100%),
+        linear-gradient(180deg, #FAFBFC 0%, #BFC5CC 48%, #E7EAEE 100%);
+      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.7), inset 0 -18px 42px rgba(13, 26, 43, 0.14);
+    }
+
+    .case-strip::before,
+    .case-strip::after {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      z-index: 1;
+      width: min(110px, 16vw);
+      content: "";
+      pointer-events: none;
+    }
+
+    .case-strip::before {
+      left: 0;
+      background: linear-gradient(90deg, rgba(13, 26, 43, 0.26), rgba(13, 26, 43, 0));
+    }
+
+    .case-strip::after {
+      right: 0;
+      background: linear-gradient(270deg, rgba(13, 26, 43, 0.26), rgba(13, 26, 43, 0));
+    }
+
+    .case-strip-track {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 10px;
+      width: min(1160px, calc(100% - 40px));
+      margin: 0 auto;
+    }
+
+    .case-badge {
+      display: inline-flex;
+      align-items: center;
+      min-height: 38px;
+      padding: 0 16px;
+      border: 1px solid rgba(250, 251, 252, 0.52);
+      border-radius: 999px;
+      background:
+        linear-gradient(135deg, rgba(250, 251, 252, 0.88), rgba(214, 222, 230, 0.36)),
+        rgba(13, 26, 43, 0.08);
+      color: var(--navy);
+      font-size: 0.84rem;
+      font-weight: 800;
+      letter-spacing: 0.02em;
+      line-height: 1;
+      text-transform: uppercase;
+      box-shadow: 0 10px 28px rgba(13, 26, 43, 0.12), inset 0 1px 0 rgba(255, 255, 255, 0.72);
+      white-space: nowrap;
+    }
+
     .section.taupe {
       background: linear-gradient(180deg, var(--blue-ice), var(--ice));
     }
@@ -1008,6 +1071,28 @@
         margin-bottom: 24px;
       }
 
+      .case-strip {
+        padding: 14px 0;
+      }
+
+      .case-strip-track {
+        justify-content: flex-start;
+        flex-wrap: nowrap;
+        overflow-x: auto;
+        padding-bottom: 2px;
+        scrollbar-width: none;
+      }
+
+      .case-strip-track::-webkit-scrollbar {
+        display: none;
+      }
+
+      .case-badge {
+        min-height: 34px;
+        padding: 0 13px;
+        font-size: 0.74rem;
+      }
+
       .card {
         min-height: auto;
         padding: 24px;
@@ -1081,6 +1166,26 @@
             <strong>Análise responsável antes de qualquer medida.</strong>
             <span>O primeiro passo é organizar fatos, documentos e prejuízos para avaliar a viabilidade jurídica do caso.</span>
           </aside>
+        </div>
+      </section>
+
+      <section class="case-strip" aria-label="Situações atendidas">
+        <div class="case-strip-track">
+          <span class="case-badge">Voo cancelado</span>
+          <span class="case-badge">Voo atrasado</span>
+          <span class="case-badge">Conexão perdida</span>
+          <span class="case-badge">Overbooking</span>
+          <span class="case-badge">Bagagem extraviada</span>
+          <span class="case-badge">Voo cancelado</span>
+          <span class="case-badge">Voo atrasado</span>
+          <span class="case-badge">Conexão perdida</span>
+          <span class="case-badge">Overbooking</span>
+          <span class="case-badge">Bagagem extraviada</span>
+          <span class="case-badge">Voo cancelado</span>
+          <span class="case-badge">Voo atrasado</span>
+          <span class="case-badge">Conexão perdida</span>
+          <span class="case-badge">Overbooking</span>
+          <span class="case-badge">Bagagem extraviada</span>
         </div>
       </section>
 
