@@ -12,8 +12,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Direitos do Passageiro Aéreo | Raposo e Lorenzon Advocacia</title>
   <meta name="description" content="Orientação jurídica individualizada para casos de voo atrasado, cancelado, bagagem extraviada e falta de assistência.">
-  <link rel="icon" type="image/png" href="assets/Ícone_1.png">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  <link rel="icon" type="image/png" href="assets/icon-dark-opt.png">
+  <link rel="preload" as="image" href="assets/hero-desktop-opt.jpg" media="(min-width: 981px)" fetchpriority="high">
+  <link rel="preload" as="image" href="assets/mobile (1).jpg" media="(max-width: 980px)" fetchpriority="high">
   <style>
     :root {
       --neutral-blue: #B4C2E0;
@@ -41,6 +42,7 @@
       --porcelain: #F4F5F4;
       --ink: #081326;
       --blue-line: rgba(var(--innovation-rgb), 0.72);
+      --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
       --serif: "Mozilla Text", Georgia, serif;
       --sans: "Helvetica Neue", Helvetica, Arial, sans-serif;
     }
@@ -215,6 +217,8 @@
     }
 
     .button {
+      position: relative;
+      overflow: hidden;
       display: inline-flex;
       align-items: center;
       justify-content: center;
@@ -231,6 +235,20 @@
       text-align: center;
       transition: 180ms ease;
       box-shadow: 0 12px 30px rgba(var(--innovation-rgb), 0.2);
+      isolation: isolate;
+    }
+
+    .button::after {
+      position: absolute;
+      top: -50%;
+      left: -60%;
+      z-index: -1;
+      width: 34%;
+      height: 200%;
+      background: rgba(var(--paper-rgb), 0.15);
+      content: "";
+      transform: skewX(-20deg) translateX(-220%);
+      transition: transform 540ms var(--ease-out);
     }
 
     .wa-icon {
@@ -243,6 +261,10 @@
     .button:hover {
       background: linear-gradient(135deg, var(--tradition) 0%, var(--navy) 100%);
       transform: translateY(-1px);
+    }
+
+    .button:hover::after {
+      transform: skewX(-20deg) translateX(630%);
     }
 
     .button.secondary {
@@ -315,6 +337,7 @@
       max-width: none;
       object-fit: cover;
       object-position: center top;
+      animation: hero-photo-in 1400ms var(--ease-out) both;
     }
 
     .hero-favicon {
@@ -324,6 +347,7 @@
       z-index: 2;
       width: 120px;
       height: auto;
+      animation: brand-rise-in 920ms 360ms var(--ease-out) both;
     }
 
     .hero-favicon img {
@@ -362,6 +386,7 @@
       background-clip: text;
       -webkit-text-fill-color: transparent;
       color: transparent;
+      animation: copy-rise-in 850ms 90ms var(--ease-out) both;
     }
 
     .hero-copy .hero-highlight {
@@ -377,6 +402,7 @@
       color: rgba(var(--paper-rgb), 0.82);
       font-size: clamp(1rem, 1.15vw, 1.1rem);
       line-height: 1.66;
+      animation: copy-rise-in 850ms 180ms var(--ease-out) both;
     }
 
     .hero-copy .section-lead strong {
@@ -398,6 +424,7 @@
       justify-content: center;
       gap: 16px;
       margin-top: 30px;
+      animation: copy-rise-in 850ms 280ms var(--ease-out) both;
     }
 
     .microcopy {
@@ -510,6 +537,11 @@
       animation-play-state: paused;
     }
 
+    .case-strip-track.is-paused,
+    .case-strip-track.is-page-hidden {
+      animation-play-state: paused;
+    }
+
     .case-strip-row {
       display: flex;
       align-items: center;
@@ -544,6 +576,42 @@
 
       to {
         transform: translateX(-50%);
+      }
+    }
+
+    @keyframes hero-photo-in {
+      from {
+        opacity: 0;
+        transform: scale(1.035);
+      }
+
+      to {
+        opacity: 1;
+        transform: scale(1);
+      }
+    }
+
+    @keyframes copy-rise-in {
+      from {
+        opacity: 0;
+        transform: translateY(22px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes brand-rise-in {
+      from {
+        opacity: 0;
+        transform: translateY(12px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
       }
     }
 
@@ -787,8 +855,14 @@
       box-shadow: none;
     }
 
-    #problema .icon i {
-      font-size: 1.15rem;
+    #problema .icon svg {
+      width: 22px;
+      height: 22px;
+      fill: none;
+      stroke: currentColor;
+      stroke-width: 1.6;
+      stroke-linecap: round;
+      stroke-linejoin: round;
     }
 
     #problema .wide-visual {
@@ -1274,6 +1348,99 @@
       color: var(--neutral-blue);
     }
 
+    .motion-ready .reveal {
+      opacity: 0;
+      transform: translateY(30px);
+      transition:
+        opacity 700ms var(--ease-out),
+        transform 700ms var(--ease-out);
+      transition-delay: var(--reveal-delay, 0ms);
+      will-change: opacity, transform;
+    }
+
+    .motion-ready .reveal.reveal-media {
+      transform: translateY(24px) scale(0.985);
+    }
+
+    .motion-ready .media-panel.reveal-media::before {
+      position: absolute;
+      inset: 0;
+      z-index: 2;
+      background: var(--innovation);
+      content: "";
+      pointer-events: none;
+      transform: scaleX(1);
+      transform-origin: right center;
+      transition: transform 880ms 90ms var(--ease-out);
+    }
+
+    .motion-ready .media-panel.reveal-media.is-visible::before {
+      transform: scaleX(0);
+    }
+
+    .motion-ready .reveal.is-visible,
+    .motion-ready .reveal.reveal-media.is-visible {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+      will-change: auto;
+    }
+
+    .motion-ready .step.reveal.is-visible:hover,
+    .motion-ready #problema .card.reveal.is-visible:hover {
+      transform: translateY(-4px);
+    }
+
+    .steps .step:nth-child(2),
+    #problema .card:nth-child(2),
+    .pillars .pillar:nth-child(2),
+    .document-list li:nth-child(2),
+    .faq-item:nth-child(2) {
+      --reveal-delay: 60ms;
+    }
+
+    .steps .step:nth-child(3),
+    #problema .card:nth-child(3),
+    .pillars .pillar:nth-child(3),
+    .document-list li:nth-child(3),
+    .faq-item:nth-child(3) {
+      --reveal-delay: 120ms;
+    }
+
+    .steps .step:nth-child(4),
+    #problema .card:nth-child(4),
+    .document-list li:nth-child(4),
+    .faq-item:nth-child(4) {
+      --reveal-delay: 180ms;
+    }
+
+    .document-list li:nth-child(5),
+    .faq-item:nth-child(5) {
+      --reveal-delay: 240ms;
+    }
+
+    .document-list li:nth-child(6) {
+      --reveal-delay: 300ms;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html {
+        scroll-behavior: auto;
+      }
+
+      *,
+      *::before,
+      *::after {
+        animation-duration: 1ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 1ms !important;
+      }
+
+      .case-strip-track {
+        animation: none;
+        transform: none;
+      }
+    }
+
     .final-box .button {
       min-width: min(100%, 360px);
       min-height: 62px;
@@ -1650,12 +1817,12 @@
         <div class="hero-media" aria-hidden="true">
           <picture>
             <source srcset="assets/mobile (1).jpg" media="(max-width: 980px)">
-            <img src="assets/desktop (5).jpg" alt="">
+            <img src="assets/hero-desktop-opt.jpg" width="1920" height="1080" fetchpriority="high" decoding="async" alt="">
           </picture>
         </div>
         <picture class="hero-favicon" aria-hidden="true">
-          <source srcset="assets/BrancoLogoHorizontal.png" media="(max-width: 700px)">
-          <img src="assets/BrancoLogoVertical.png" alt="">
+          <source srcset="assets/logo-white-horizontal-opt.png" media="(max-width: 700px)">
+          <img src="assets/logo-white-vertical-opt.png" width="320" height="99" decoding="async" alt="">
         </picture>
         <div class="container hero-grid">
           <div class="hero-copy">
@@ -1708,7 +1875,7 @@
               <p class="eyebrow">Processo de atendimento</p>
               <h2>Como funciona a análise do seu caso</h2>
             </div>
-            <img class="brand-glyph" src="assets/Ícone_1.png" alt="" aria-hidden="true">
+            <img class="brand-glyph" src="assets/icon-dark-opt.png" width="160" height="226" loading="lazy" decoding="async" alt="" aria-hidden="true">
           </div>
           <div class="steps" aria-label="Etapas da análise">
             <article class="step">
@@ -1743,33 +1910,33 @@
             <p class="section-lead"><strong>Perder uma reunião importante. Chegar atrasado em um compromisso. Gastar com hotel, alimentação ou transporte por causa da companhia aérea.</strong> Para muitas pessoas, um <strong>voo cancelado</strong> ou uma <strong>bagagem extraviada</strong> significa prejuízos concretos. O problema não está apenas no atraso em si, mas na <strong>assistência oferecida</strong> e nos <strong>prejuízos causados</strong>.</p>
           </div>
           <figure class="media-panel wide-visual">
-            <img src="ChatGPT Image 22 de mai. de 2026, 15_54_01.png" alt="Passageiro em terminal observando um avião pela janela do aeroporto">
+            <img src="assets/prejuizos-aereos-opt.jpg" width="1440" height="810" loading="lazy" decoding="async" alt="Passageiro em terminal observando um avião pela janela do aeroporto">
           </figure>
           <div class="cards-grid">
             <article class="card">
               <span class="icon" aria-hidden="true">
-                <i class="bi bi-airplane-engines"></i>
+                <svg viewBox="0 0 24 24"><path d="M3 21h18"/><path d="M5 16l14-7"/><path d="M7 9l5 5"/><path d="M13 5l6 4"/></svg>
               </span>
               <h3>Cancelamento de voo</h3>
               <p>Quando a viagem é interrompida ou remarcada sem solução adequada.</p>
             </article>
             <article class="card">
               <span class="icon" aria-hidden="true">
-                <i class="bi bi-clock-history"></i>
+                <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>
               </span>
               <h3>Atraso prolongado</h3>
               <p>Quando a espera causa prejuízos concretos ou transtornos relevantes.</p>
             </article>
             <article class="card">
               <span class="icon" aria-hidden="true">
-                <i class="bi bi-suitcase-lg"></i>
+                <svg viewBox="0 0 24 24"><path d="M8 7V5a3 3 0 0 1 3-3h2a3 3 0 0 1 3 3v2"/><rect x="5" y="7" width="14" height="14" rx="2"/><path d="M9 21v-4"/><path d="M15 21v-4"/></svg>
               </span>
               <h3>Extravio de bagagem</h3>
               <p>Quando pertences são perdidos, entregues com atraso ou danificados.</p>
             </article>
             <article class="card">
               <span class="icon" aria-hidden="true">
-                <i class="bi bi-headset"></i>
+                <svg viewBox="0 0 24 24"><path d="M4 14v-2a8 8 0 0 1 16 0v2"/><path d="M18 19a2 2 0 0 0 2-2v-4h-3a2 2 0 0 0-2 2v2h3"/><path d="M6 13H4v4a2 2 0 0 0 2 2h3v-4a2 2 0 0 0-2-2H6"/><path d="M15 19h-3"/></svg>
               </span>
               <h3>Falta de assistência</h3>
               <p>Quando o passageiro fica sem informação, suporte ou alternativas razoáveis.</p>
@@ -1785,7 +1952,7 @@
         <div class="container analysis-split">
           <figure class="analysis-figure">
             <div class="media-panel analysis-visual">
-              <img src="assets/IMG_6855-2 (1).jpg" alt="Atendimento jurídico a passageiro em ambiente profissional">
+              <img src="assets/analise-opt.jpg" width="1440" height="937" loading="lazy" decoding="async" alt="Atendimento jurídico a passageiro em ambiente profissional">
             </div>
             <figcaption class="analysis-caption">Raposo &amp; Lorenzon <span>Advocacia e consultoria</span></figcaption>
           </figure>
@@ -1826,7 +1993,7 @@
             </div>
           </div>
           <figure class="media-panel firm-photo">
-            <img src="assets/7.jpg" alt="Advogados Raposo e Lorenzon em retrato institucional">
+            <img src="assets/escritorio-opt.jpg" width="1920" height="1080" loading="lazy" decoding="async" alt="Advogados Raposo e Lorenzon em retrato institucional">
             <figcaption><span>Atendimento especializado</span><span>Raposo &amp; Lorenzon</span></figcaption>
           </figure>
           <div class="pillars">
@@ -1861,7 +2028,7 @@
       <section class="section dark documents-section" id="documentos">
         <div class="container doc-grid">
           <div class="doc-intro">
-            <img class="brand-glyph" src="assets/BrancoÍcone.png" alt="" aria-hidden="true">
+            <img class="brand-glyph" src="assets/icon-white-opt.png" width="160" height="226" loading="lazy" decoding="async" alt="" aria-hidden="true">
             <h2>O que ajuda na análise do seu caso?</h2>
             <p class="section-lead">Quanto mais informações você reunir, mais precisa será a nossa avaliação inicial.</p>
             <p class="note">Mesmo sem todos os documentos, ainda é possível realizar uma análise inicial do caso.</p>
@@ -1923,12 +2090,58 @@
     <footer class="site-footer">
       <div class="container footer-inner">
         <picture class="footer-logo">
-          <source srcset="assets/BrancoLogoHorizontal.png" media="(max-width: 700px)">
-          <img src="assets/BrancoLogoVertical.png" alt="Raposo e Lorenzon Advocacia">
+          <source srcset="assets/logo-white-horizontal-opt.png" media="(max-width: 700px)">
+          <img src="assets/logo-white-vertical-opt.png" width="320" height="99" loading="lazy" decoding="async" alt="Raposo e Lorenzon Advocacia">
         </picture>
         <p class="footer-note">Atendimento jurídico informativo, responsável e individualizado para demandas envolvendo falhas na prestação de serviços aéreos.</p>
       </div>
     </footer>
   </div>
+  <script>
+    (() => {
+      if (window.matchMedia("(prefers-reduced-motion: reduce)").matches || !("IntersectionObserver" in window)) {
+        return;
+      }
+
+      const targets = document.querySelectorAll(
+        ".process-head, .step, #processo .center-action, #problema .section-head, #problema .wide-visual, #problema .card, #problema .center-action, .analysis-visual, .analysis-caption, .analysis-copy, .statement-band .quote-wrap > *, .firm-head, .firm-photo, .pillar, .firm-section .center-action, .doc-intro, .document-list li, .faq-section .eyebrow, .faq-section h2, .faq-item, .final-box"
+      );
+      const mediaTargets = ".wide-visual, .analysis-visual, .firm-photo";
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (!entry.isIntersecting) {
+            return;
+          }
+
+          entry.target.classList.add("is-visible");
+          observer.unobserve(entry.target);
+        });
+      }, {
+        rootMargin: "0px 0px -9% 0px",
+        threshold: 0.12
+      });
+
+      document.documentElement.classList.add("motion-ready");
+      targets.forEach((target) => {
+        target.classList.add("reveal");
+        if (target.matches(mediaTargets)) {
+          target.classList.add("reveal-media");
+        }
+        observer.observe(target);
+      });
+
+      const strip = document.querySelector(".case-strip");
+      const stripTrack = document.querySelector(".case-strip-track");
+      if (strip && stripTrack) {
+        new IntersectionObserver(([entry]) => {
+          stripTrack.classList.toggle("is-paused", !entry.isIntersecting);
+        }).observe(strip);
+
+        document.addEventListener("visibilitychange", () => {
+          stripTrack.classList.toggle("is-page-hidden", document.hidden);
+        }, { passive: true });
+      }
+    })();
+  </script>
 </body>
 </html>
