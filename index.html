@@ -12,25 +12,37 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Direitos do Passageiro Aéreo | Raposo e Lorenzon Advocacia</title>
   <meta name="description" content="Orientação jurídica individualizada para casos de voo atrasado, cancelado, bagagem extraviada e falta de assistência.">
-  <link rel="icon" type="image/png" href="assets/favico.png">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+  <link rel="icon" type="image/png" href="assets/Ícone_1.png">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
   <style>
     :root {
-      --navy: #0D1A2B;
-      --graphite: #2B2F36;
-      --slate: #4A5563;
-      --silver: #BFC5CC;
-      --ice: #E7EAEE;
-      --paper: #FAFBFC;
-      --accent: #5E6F86;
-      --blue-ice: #D6DEE6;
-      --white: #FFFFFF;
-      --line: rgba(43, 47, 54, 0.14);
-      --shadow: 0 24px 70px rgba(14, 26, 43, 0.12);
-      --serif: "Playfair Display", Georgia, serif;
-      --sans: "Inter", Arial, sans-serif;
+      --neutral-blue: #B4C2E0;
+      --innovation: #1C52BF;
+      --tradition: #0C2A66;
+      --navy: #061533;
+      --silver: #D7DAE0;
+      --gray: #83878F;
+      --graphite: #17181A;
+      --paper: #FFFFFF;
+      --neutral-blue-rgb: 180, 194, 224;
+      --innovation-rgb: 28, 82, 191;
+      --tradition-rgb: 12, 42, 102;
+      --navy-rgb: 6, 21, 51;
+      --silver-rgb: 215, 218, 224;
+      --gray-rgb: 131, 135, 143;
+      --graphite-rgb: 23, 24, 26;
+      --paper-rgb: 255, 255, 255;
+      --ice: var(--silver);
+      --accent: var(--innovation);
+      --blue-ice: var(--neutral-blue);
+      --white: var(--paper);
+      --line: rgba(var(--silver-rgb), 0.72);
+      --shadow: 0 24px 70px rgba(var(--navy-rgb), 0.16);
+      --porcelain: #F4F5F4;
+      --ink: #081326;
+      --blue-line: rgba(var(--innovation-rgb), 0.72);
+      --serif: "Mozilla Text", Georgia, serif;
+      --sans: "Helvetica Neue", Helvetica, Arial, sans-serif;
     }
 
     * {
@@ -62,9 +74,7 @@
 
     .page-shell {
       overflow: hidden;
-      padding-top: 82px;
-      background:
-        linear-gradient(180deg, rgba(250, 251, 252, 0.96), rgba(250, 251, 252, 0.88) 42%, rgba(231, 234, 238, 0.42));
+      background: var(--paper);
     }
 
     .container {
@@ -95,17 +105,23 @@
 
     h1 {
       max-width: 720px;
-      font-size: clamp(2.25rem, 3.2vw, 3.65rem);
+      font-size: clamp(2.45rem, 3.5vw, 4.1rem);
     }
 
     h2 {
       max-width: 720px;
+      font-family: var(--sans);
       font-size: clamp(2rem, 3.4vw, 3.45rem);
+      font-weight: 500;
+      letter-spacing: -0.055em;
     }
 
     h3 {
+      font-family: var(--sans);
       font-size: 1.18rem;
+      font-weight: 600;
       line-height: 1.25;
+      letter-spacing: -0.03em;
     }
 
     p {
@@ -115,7 +131,7 @@
     .section-lead {
       max-width: 760px;
       margin-top: 18px;
-      color: rgba(43, 47, 54, 0.82);
+      color: rgba(var(--graphite-rgb), 0.82);
       font-size: clamp(1.02rem, 1.5vw, 1.18rem);
       line-height: 1.78;
     }
@@ -126,18 +142,19 @@
       top: 0;
       right: 0;
       left: 0;
-      border-bottom: 1px solid rgba(191, 197, 204, 0.16);
-      background: rgba(13, 26, 43, 0.96);
+      border-bottom: 1px solid transparent;
+      background: transparent;
       opacity: 1;
       pointer-events: auto;
       transform: translateY(0);
-      backdrop-filter: blur(18px);
+      backdrop-filter: blur(0);
       transition: opacity 180ms ease, transform 180ms ease, background 180ms ease, border-color 180ms ease, box-shadow 180ms ease;
     }
 
     .site-header.is-scrolled {
-      border-bottom-color: rgba(191, 197, 204, 0.7);
-      box-shadow: 0 14px 40px rgba(14, 26, 43, 0.08);
+      border-bottom-color: rgba(var(--silver-rgb), 0.18);
+      background: rgba(var(--navy-rgb), 0.92);
+      box-shadow: 0 14px 40px rgba(var(--navy-rgb), 0.16);
       backdrop-filter: blur(18px);
       opacity: 1;
       pointer-events: auto;
@@ -155,23 +172,23 @@
     .brand {
       display: inline-flex;
       align-items: center;
-      width: min(310px, 54vw);
-      min-width: 210px;
+      width: min(122px, 19vw);
+      min-width: 96px;
     }
 
     .brand img {
       width: 100%;
       height: auto;
-      filter: grayscale(1) saturate(0) contrast(1.08) brightness(0) invert(1);
     }
 
     .nav-links {
       display: flex;
       align-items: center;
-      gap: 28px;
-      color: rgba(250, 251, 252, 0.78);
-      font-size: 0.92rem;
-      font-weight: 600;
+      gap: 24px;
+      color: rgba(var(--paper-rgb), 0.78);
+      font-size: 0.9rem;
+      font-weight: 500;
+      letter-spacing: 0.02em;
     }
 
     .nav-links a {
@@ -182,13 +199,13 @@
     .nav-links a::after {
       position: absolute;
       right: 0;
-      bottom: 3px;
+      bottom: 5px;
       left: 0;
       height: 1px;
-      background: var(--accent);
+      background: rgba(var(--paper-rgb), 0.86);
       content: "";
       opacity: 0;
-      transform: scaleX(0.4);
+      transform: scaleX(0.45);
       transition: 180ms ease;
     }
 
@@ -205,15 +222,15 @@
       min-height: 52px;
       padding: 0 22px;
       border: 1px solid transparent;
-      border-radius: 6px;
-      background: var(--accent);
+      border-radius: 0;
+      background: linear-gradient(135deg, var(--innovation) 0%, var(--tradition) 100%);
       color: var(--white);
-      font-size: 0.95rem;
+      font-size: 1.02rem;
       font-weight: 700;
       line-height: 1.2;
       text-align: center;
       transition: 180ms ease;
-      box-shadow: 0 12px 30px rgba(94, 111, 134, 0.22);
+      box-shadow: 0 12px 30px rgba(var(--innovation-rgb), 0.2);
     }
 
     .wa-icon {
@@ -224,28 +241,39 @@
     }
 
     .button:hover {
-      background: #4A5563;
+      background: linear-gradient(135deg, var(--tradition) 0%, var(--navy) 100%);
       transform: translateY(-1px);
     }
 
     .button.secondary {
-      border-color: rgba(191, 197, 204, 0.34);
-      background: rgba(250, 251, 252, 0.08);
+      min-height: 44px;
+      padding: 0 16px;
+      border-color: rgba(var(--paper-rgb), 0.24);
+      border-radius: 0;
+      background: rgba(var(--paper-rgb), 0.06);
       color: var(--paper);
       box-shadow: none;
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
     }
 
     .button.secondary:hover {
-      border-color: rgba(214, 222, 230, 0.68);
-      background: rgba(214, 222, 230, 0.12);
+      border-color: rgba(var(--paper-rgb), 0.38);
+      background: rgba(var(--paper-rgb), 0.12);
+    }
+
+    .button.secondary .wa-icon {
+      width: 14px;
+      height: 14px;
     }
 
     .hero {
       position: relative;
-      height: min(760px, 100svh);
-      max-height: 100svh;
-      min-height: min(680px, 100svh);
-      padding: 72px 0 40px;
+      height: 100svh;
+      min-height: 100svh;
+      padding: 0 0 48px;
       color: var(--paper);
       background: var(--navy);
       isolation: isolate;
@@ -253,22 +281,11 @@
     }
 
     .hero::before {
-      position: absolute;
-      inset: 0 auto 0 0;
-      z-index: -2;
-      width: min(900px, 68vw);
-      background:
-        linear-gradient(90deg, var(--navy) 0%, rgba(13, 26, 43, 0.99) 56%, rgba(13, 26, 43, 0.9) 72%, rgba(13, 26, 43, 0.34) 92%, rgba(13, 26, 43, 0) 100%);
-      content: "";
+      content: none;
     }
 
     .hero::after {
-      position: absolute;
-      inset: auto 0 0;
-      z-index: -1;
-      height: 170px;
-      background: linear-gradient(180deg, rgba(13, 26, 43, 0), rgba(13, 26, 43, 0.92));
-      content: "";
+      content: none;
     }
 
     .hero-media {
@@ -276,61 +293,109 @@
       inset: 0;
       z-index: -3;
       display: flex;
-      justify-content: flex-end;
-      align-items: flex-end;
+      justify-content: center;
+      align-items: stretch;
       background: var(--navy);
       overflow: hidden;
     }
 
     .hero-media picture,
     .hero-media img {
+      width: 100%;
       height: 100%;
     }
 
     .hero-media picture {
       display: block;
-      width: auto;
+      width: 100%;
       margin-left: auto;
     }
 
     .hero-media img {
-      width: auto;
       max-width: none;
+      object-fit: cover;
+      object-position: center top;
+    }
+
+    .hero-favicon {
+      position: absolute;
+      left: 28px;
+      bottom: 28px;
+      z-index: 2;
+      width: 120px;
+      height: auto;
+    }
+
+    .hero-favicon img {
+      display: block;
+      width: 100%;
+      height: auto;
       object-fit: contain;
-      object-position: right bottom;
     }
 
     .hero-grid {
-      display: grid;
-      grid-template-columns: minmax(0, 560px);
-      align-content: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-end;
       height: 100%;
+      width: 100%;
       gap: 20px;
+      padding-bottom: 22px;
+      text-align: center;
     }
 
     .hero-copy {
       padding-top: 0;
+      max-width: 1040px;
     }
 
     .hero-copy h1 {
-      max-width: 560px;
-      background: linear-gradient(115deg, #FFFFFF 0%, #D6DEE6 34%, #AEB8C4 58%, #FAFBFC 78%, #8FA0B3 100%);
+      max-width: 1040px;
+      font-family: var(--serif);
+      font-size: clamp(2.55rem, 3.7vw, 4.2rem);
+      font-weight: 700;
+      line-height: 1.04;
+      letter-spacing: 0;
+      background: linear-gradient(108deg, var(--paper) 0%, rgba(var(--paper-rgb), 0.9) 38%, var(--neutral-blue) 100%);
       -webkit-background-clip: text;
       background-clip: text;
+      -webkit-text-fill-color: transparent;
       color: transparent;
     }
 
+    .hero-copy .hero-highlight {
+      font-size: 1em;
+      font-weight: inherit;
+      letter-spacing: inherit;
+    }
+
     .hero-copy .section-lead {
-      max-width: 535px;
-      color: rgba(250, 251, 252, 0.82);
+      max-width: 720px;
+      margin-right: auto;
+      margin-left: auto;
+      color: rgba(var(--paper-rgb), 0.82);
       font-size: clamp(1rem, 1.15vw, 1.1rem);
       line-height: 1.66;
+    }
+
+    .hero-copy .section-lead strong {
+      color: var(--paper);
+      font-weight: 500;
+      box-shadow: inset 0 -0.34em 0 rgba(var(--innovation-rgb), 0.34);
+    }
+
+    .hero-copy .section-lead em {
+      color: var(--paper);
+      font-style: italic;
+      box-shadow: inset 0 -0.34em 0 rgba(var(--innovation-rgb), 0.34);
     }
 
     .hero-actions {
       display: flex;
       flex-wrap: wrap;
       align-items: center;
+      justify-content: center;
       gap: 16px;
       margin-top: 30px;
     }
@@ -342,32 +407,17 @@
       font-size: 0.9rem;
     }
 
-    .hero-list {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 8px;
-      max-width: 500px;
-      margin: 20px 0 0;
-      padding: 0;
-      list-style: none;
-    }
-
-    .hero-list li,
     .check-list li {
       display: grid;
       grid-template-columns: 22px 1fr;
       align-items: start;
       gap: 10px;
-      color: rgba(43, 47, 54, 0.84);
+      color: rgba(var(--graphite-rgb), 0.84);
       font-weight: 600;
     }
 
-    .hero-list li {
-      color: rgba(250, 251, 252, 0.86);
-    }
-
     .hero .eyebrow {
-      color: var(--silver);
+      color: var(--innovation);
     }
 
     .mark {
@@ -376,18 +426,11 @@
       width: 22px;
       height: 22px;
       margin-top: 2px;
-      border: 1px solid rgba(94, 111, 134, 0.45);
-      border-radius: 50%;
+      border: 1px solid rgba(var(--innovation-rgb), 0.45);
+      border-radius: 0;
       color: var(--accent);
       font-size: 0.8rem;
       line-height: 1;
-    }
-
-    .hero .mark {
-      border-color: rgba(191, 197, 204, 0.72);
-      background: linear-gradient(135deg, rgba(214, 222, 230, 0.22), rgba(94, 111, 134, 0.34));
-      color: #FAFBFC;
-      box-shadow: 0 0 0 3px rgba(214, 222, 230, 0.08), 0 8px 22px rgba(13, 26, 43, 0.24);
     }
 
     .hero-panel {
@@ -396,7 +439,7 @@
       width: min(520px, 100%);
       padding: 18px 20px;
       border: 1px solid rgba(250, 251, 252, 0.38);
-      border-radius: 8px;
+      border-radius: 0;
       background: rgba(14, 26, 43, 0.72);
       color: var(--paper);
       box-shadow: var(--shadow);
@@ -422,19 +465,16 @@
     }
 
     .section.sand {
-      background: var(--ice);
+      background: var(--porcelain);
     }
 
     .case-strip {
       position: relative;
       overflow: hidden;
       padding: 10px 0;
-      border-top: 1px solid rgba(250, 251, 252, 0.18);
-      border-bottom: 1px solid rgba(13, 26, 43, 0.16);
-      background:
-        linear-gradient(110deg, rgba(255, 255, 255, 0.88) 0%, rgba(191, 197, 204, 0.92) 16%, rgba(250, 251, 252, 0.96) 31%, rgba(143, 160, 179, 0.94) 48%, rgba(214, 222, 230, 0.98) 66%, rgba(74, 85, 99, 0.78) 100%),
-        linear-gradient(180deg, #FAFBFC 0%, #BFC5CC 48%, #E7EAEE 100%);
-      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.7), inset 0 -18px 42px rgba(13, 26, 43, 0.14);
+      border-top: 1px solid rgba(var(--paper-rgb), 0.12);
+      border-bottom: 1px solid rgba(var(--innovation-rgb), 0.18);
+      background: var(--innovation);
     }
 
     .case-strip::before,
@@ -450,12 +490,12 @@
 
     .case-strip::before {
       left: 0;
-      background: linear-gradient(90deg, rgba(13, 26, 43, 0.26), rgba(13, 26, 43, 0));
+      background: linear-gradient(90deg, rgba(var(--tradition-rgb), 0.48), rgba(var(--innovation-rgb), 0));
     }
 
     .case-strip::after {
       right: 0;
-      background: linear-gradient(270deg, rgba(13, 26, 43, 0.26), rgba(13, 26, 43, 0));
+      background: linear-gradient(270deg, rgba(var(--tradition-rgb), 0.48), rgba(var(--innovation-rgb), 0));
     }
 
     .case-strip-track {
@@ -482,18 +522,17 @@
       display: inline-flex;
       align-items: center;
       gap: 16px;
-      color: var(--navy);
+      color: var(--paper);
       font-size: 0.84rem;
       font-weight: 800;
       letter-spacing: 0.02em;
       line-height: 1;
       text-transform: uppercase;
-      text-shadow: 0 1px 0 rgba(250, 251, 252, 0.54);
       white-space: nowrap;
     }
 
     .case-badge::after {
-      color: rgba(13, 26, 43, 0.42);
+      color: rgba(var(--paper-rgb), 0.58);
       content: "•";
       font-weight: 900;
     }
@@ -509,13 +548,12 @@
     }
 
     .section.taupe {
-      background: linear-gradient(180deg, var(--blue-ice), var(--ice));
+      background: var(--porcelain);
     }
 
     .section.dark {
-      background:
-        linear-gradient(135deg, rgba(74, 85, 99, 0.9), rgba(13, 26, 43, 0.97)),
-        var(--navy);
+      border-top: 1px solid rgba(var(--innovation-rgb), 0.26);
+      background: linear-gradient(118deg, #0e285c 0%, var(--ink) 44%, #050d1c 100%);
       color: var(--paper);
     }
 
@@ -526,6 +564,40 @@
 
     .section.dark .section-lead {
       color: rgba(250, 251, 252, 0.78);
+    }
+
+    .section.dark .eyebrow {
+      color: var(--neutral-blue);
+    }
+
+    .statement-band {
+      padding-top: clamp(64px, 7vw, 92px);
+      padding-bottom: clamp(64px, 7vw, 92px);
+    }
+
+    .statement-band blockquote {
+      border-left: 0;
+      border-top: 2px solid var(--innovation);
+      background: transparent;
+      color: var(--paper);
+      padding: 32px 0 0;
+    }
+
+    .section.dark .faq-item {
+      border-color: rgba(var(--paper-rgb), 0.12);
+      background: rgba(var(--paper-rgb), 0.08);
+    }
+
+    .section.dark .faq-item summary {
+      color: var(--paper);
+    }
+
+    .section.dark .faq-item summary::after {
+      color: var(--neutral-blue);
+    }
+
+    .section.dark .faq-item p {
+      color: rgba(var(--paper-rgb), 0.72);
     }
 
     .section-head {
@@ -547,6 +619,27 @@
       font-size: clamp(2.45rem, 3.95vw, 4.25rem);
     }
 
+    .brand-glyph {
+      display: block;
+      width: clamp(42px, 4vw, 54px);
+      height: auto;
+      flex: 0 0 auto;
+      object-fit: contain;
+      opacity: 0.72;
+    }
+
+    .process-head {
+      display: flex;
+      align-items: end;
+      justify-content: space-between;
+      gap: 34px;
+      margin-bottom: 4px;
+    }
+
+    .process-head > div {
+      min-width: 0;
+    }
+
     .cards-grid {
       display: grid;
       grid-template-columns: repeat(4, minmax(0, 1fr));
@@ -557,10 +650,10 @@
       position: relative;
       overflow: hidden;
       margin: 0;
-      border: 1px solid rgba(191, 197, 204, 0.34);
-      border-radius: 8px;
+      border: 1px solid rgba(var(--navy-rgb), 0.14);
+      border-radius: 0;
       background: var(--blue-ice);
-      box-shadow: 0 24px 70px rgba(13, 26, 43, 0.12);
+      box-shadow: none;
     }
 
     .media-panel::after {
@@ -597,38 +690,114 @@
     }
 
     .card {
-      min-height: 246px;
-      padding: 26px;
-      border: 1px solid var(--line);
-      border-radius: 8px;
-      background: rgba(250, 251, 252, 0.68);
+      position: relative;
+      min-height: 226px;
+      padding: 26px 24px 24px;
+      border: 1px solid var(--silver);
+      border-radius: 0;
+      background: rgba(var(--paper-rgb), 0.96);
+      overflow: hidden;
+    }
+
+    .card::before {
+      position: absolute;
+      top: 0;
+      right: 24px;
+      left: 24px;
+      height: 3px;
+      background: var(--innovation);
+      content: "";
     }
 
     .card p {
-      margin-top: 16px;
-      color: rgba(43, 47, 54, 0.75);
-      font-size: 0.96rem;
+      margin-top: 12px;
+      color: rgba(var(--graphite-rgb), 0.7);
+      font-size: 0.94rem;
+      line-height: 1.64;
     }
 
     .icon {
       display: inline-grid;
       place-items: center;
-      width: 46px;
-      height: 46px;
-      margin-bottom: 26px;
-      border: 1px solid rgba(94, 111, 134, 0.34);
-      border-radius: 50%;
-      color: var(--accent);
+      width: 38px;
+      height: 38px;
+      margin-bottom: 22px;
+      border: 1px solid rgba(var(--innovation-rgb), 0.22);
+      border-radius: 0;
+      color: var(--innovation);
+      background: rgba(var(--neutral-blue-rgb), 0.18);
     }
 
-    .icon svg {
-      width: 23px;
-      height: 23px;
-      stroke: currentColor;
-      stroke-width: 1.7;
-      stroke-linecap: round;
-      stroke-linejoin: round;
-      fill: none;
+    .icon i {
+      font-size: 1rem;
+      line-height: 1;
+    }
+
+    #problema .cards-grid {
+      gap: 20px;
+    }
+
+    #problema .card {
+      min-height: 248px;
+      padding: 30px 28px 28px;
+      border: 1px solid rgba(var(--paper-rgb), 0.15);
+      border-radius: 0;
+      background: rgba(var(--paper-rgb), 0.035);
+      box-shadow: none;
+      transition: transform 180ms ease, box-shadow 180ms ease, border-color 180ms ease;
+    }
+
+    #problema .card::before {
+      top: auto;
+      right: 28px;
+      bottom: 0;
+      left: 28px;
+      height: 1px;
+      background: var(--innovation);
+    }
+
+    #problema .card:hover {
+      border-color: rgba(var(--innovation-rgb), 0.72);
+      background: rgba(var(--paper-rgb), 0.065);
+      transform: translateY(-3px);
+    }
+
+    #problema .card h3 {
+      max-width: 11ch;
+      color: var(--paper);
+      font-size: 1.32rem;
+      line-height: 1.18;
+    }
+
+    #problema .card p {
+      margin-top: 14px;
+      color: rgba(var(--paper-rgb), 0.68);
+      font-size: 0.95rem;
+      line-height: 1.7;
+    }
+
+    #problema .icon {
+      width: 52px;
+      height: 52px;
+      margin-bottom: 26px;
+      border: 1px solid rgba(var(--paper-rgb), 0.18);
+      border-radius: 0;
+      color: var(--neutral-blue);
+      background: transparent;
+      box-shadow: none;
+    }
+
+    #problema .icon i {
+      font-size: 1.15rem;
+    }
+
+    #problema .wide-visual {
+      border: 0;
+      border-left: 4px solid var(--innovation);
+    }
+
+    #problema .section-lead strong {
+      color: var(--paper);
     }
 
     .split {
@@ -636,6 +805,65 @@
       grid-template-columns: minmax(0, 1.05fr) minmax(320px, 0.95fr);
       gap: clamp(34px, 6vw, 80px);
       align-items: center;
+    }
+
+    #analise .analysis-split {
+      display: grid;
+      grid-template-columns: minmax(0, 1.02fr) minmax(320px, 0.88fr);
+      gap: clamp(34px, 6vw, 84px);
+      align-items: start;
+    }
+
+    .analysis-figure {
+      margin: 0;
+    }
+
+    #analise .analysis-visual {
+      height: clamp(370px, 41vw, 500px);
+      border: 0;
+      border-bottom: 4px solid var(--innovation);
+    }
+
+    #analise .analysis-visual img {
+      object-position: center center;
+    }
+
+    #analise .analysis-copy {
+      position: sticky;
+      top: 26px;
+      align-self: start;
+    }
+
+    #analise .analysis-copy .section-lead {
+      max-width: none;
+    }
+
+    #analise .check-panel {
+      margin-top: 24px;
+    }
+
+    .analysis-caption {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+      padding: 18px 0 0;
+      color: rgba(var(--graphite-rgb), 0.62);
+      font-size: 0.82rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+
+    .analysis-caption::before {
+      flex: 0 0 46px;
+      height: 1px;
+      background: var(--innovation);
+      content: "";
+    }
+
+    .analysis-caption span {
+      margin-left: auto;
     }
 
     .check-list {
@@ -648,10 +876,10 @@
 
     .check-panel {
       padding: 34px;
-      border: 1px solid rgba(14, 26, 43, 0.12);
-      border-radius: 8px;
+      border: 1px solid rgba(var(--navy-rgb), 0.14);
+      border-radius: 0;
       background: var(--paper);
-      box-shadow: var(--shadow);
+      box-shadow: none;
     }
 
     .check-panel .button {
@@ -681,52 +909,77 @@
     .steps {
       display: grid;
       grid-template-columns: repeat(4, minmax(0, 1fr));
-      gap: 0;
+      gap: 18px;
       margin-top: 44px;
       counter-reset: step;
     }
 
     .step {
       position: relative;
-      min-height: 275px;
-      padding: 30px 26px 26px;
-      border-top: 1px solid rgba(14, 26, 43, 0.16);
-      border-bottom: 1px solid rgba(14, 26, 43, 0.16);
-      background: rgba(250, 251, 252, 0.5);
+      min-height: 290px;
+      padding: 34px 28px 28px;
+      border: 1px solid rgba(var(--tradition-rgb), 0.12);
+      border-radius: 0;
+      background: var(--paper);
+      box-shadow: none;
+      overflow: hidden;
+      transition: transform 180ms ease, box-shadow 180ms ease, border-color 180ms ease;
       counter-increment: step;
     }
 
-    .step:first-child {
-      border-left: 1px solid rgba(14, 26, 43, 0.16);
-      border-radius: 8px 0 0 8px;
+    .step::after {
+      position: absolute;
+      top: 0;
+      right: 0;
+      left: 0;
+      height: 2px;
+      background: var(--innovation);
+      content: "";
     }
 
+    .step:hover {
+      border-color: rgba(var(--innovation-rgb), 0.24);
+      box-shadow: 0 18px 36px rgba(var(--navy-rgb), 0.08);
+      transform: translateY(-4px);
+    }
+
+    .step:first-child,
     .step:last-child {
-      border-right: 1px solid rgba(14, 26, 43, 0.16);
-      border-radius: 0 8px 8px 0;
+      border-radius: 0;
     }
 
     .step + .step {
-      border-left: 1px solid rgba(14, 26, 43, 0.16);
+      border-left: none;
     }
 
     .step::before {
-      display: inline-grid;
-      place-items: center;
-      width: 38px;
-      height: 38px;
-      margin-bottom: 28px;
-      border-radius: 50%;
-      background: var(--navy);
-      color: var(--paper);
-      content: counter(step);
-      font-weight: 700;
+      position: absolute;
+      top: 18px;
+      right: 18px;
+      display: block;
+      color: rgba(var(--innovation-rgb), 0.1);
+      content: counter(step, decimal-leading-zero);
+      font-family: var(--sans);
+      font-size: clamp(3.4rem, 4vw, 4.6rem);
+      font-weight: 300;
+      letter-spacing: -0.04em;
+      line-height: 0.9;
+      pointer-events: none;
+      user-select: none;
+    }
+
+    .step h3 {
+      max-width: 12ch;
+      color: var(--navy);
+      font-size: 1.28rem;
+      line-height: 1.16;
     }
 
     .step p {
-      margin-top: 14px;
-      color: rgba(43, 47, 54, 0.74);
+      margin-top: 16px;
+      color: rgba(var(--graphite-rgb), 0.72);
       font-size: 0.95rem;
+      line-height: 1.7;
     }
 
     .center-action {
@@ -738,7 +991,7 @@
     .pillars {
       display: grid;
       grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 18px;
+      gap: 0;
       margin-top: 38px;
     }
 
@@ -746,8 +999,12 @@
       min-height: 190px;
       padding: 28px;
       border: 1px solid rgba(250, 251, 252, 0.14);
-      border-radius: 8px;
+      border-radius: 0;
       background: rgba(250, 251, 252, 0.07);
+    }
+
+    .pillar + .pillar {
+      border-left: 0;
     }
 
     .pillar-icon {
@@ -757,8 +1014,8 @@
       height: 50px;
       margin-bottom: 24px;
       border: 1px solid rgba(214, 222, 230, 0.26);
-      border-radius: 50%;
-      background: linear-gradient(135deg, rgba(214, 222, 230, 0.12), rgba(94, 111, 134, 0.22));
+      border-radius: 0;
+      background: transparent;
       color: var(--blue-ice);
       box-shadow: 0 16px 34px rgba(13, 26, 43, 0.22);
     }
@@ -781,6 +1038,72 @@
       margin-top: 14px;
       color: rgba(250, 251, 252, 0.72);
       font-size: 0.95rem;
+    }
+
+    .firm-section {
+      background: var(--porcelain);
+    }
+
+    .firm-head {
+      max-width: 810px;
+      margin-bottom: clamp(34px, 5vw, 56px);
+    }
+
+    .firm-head .section-lead {
+      max-width: 610px;
+    }
+
+    .firm-photo {
+      height: clamp(330px, 43vw, 520px);
+      margin-bottom: 28px;
+      border: 0;
+    }
+
+    .firm-photo::after {
+      background:
+        linear-gradient(90deg, rgba(var(--navy-rgb), 0.64), transparent 48%),
+        linear-gradient(0deg, rgba(var(--navy-rgb), 0.48), transparent 42%);
+    }
+
+    .firm-photo img {
+      object-position: center top;
+    }
+
+    .firm-photo figcaption {
+      position: absolute;
+      right: 30px;
+      bottom: 27px;
+      left: 30px;
+      z-index: 1;
+      display: flex;
+      justify-content: space-between;
+      gap: 24px;
+      border-top: 1px solid rgba(var(--paper-rgb), 0.45);
+      padding-top: 17px;
+      color: var(--paper);
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    .firm-section .pillar {
+      border-color: rgba(var(--navy-rgb), 0.13);
+      background: var(--paper);
+    }
+
+    .firm-section .pillar-icon {
+      border-color: rgba(var(--innovation-rgb), 0.22);
+      color: var(--innovation);
+      box-shadow: none;
+    }
+
+    .firm-section .pillar h3 {
+      color: var(--navy);
+    }
+
+    .firm-section .pillar p {
+      color: rgba(var(--graphite-rgb), 0.7);
     }
 
     .doc-grid {
@@ -812,7 +1135,7 @@
       min-height: 82px;
       padding: 18px;
       border: 1px solid var(--line);
-      border-radius: 8px;
+      border-radius: 0;
       background: rgba(250, 251, 252, 0.72);
       color: rgba(43, 47, 54, 0.84);
       font-weight: 600;
@@ -825,11 +1148,104 @@
       font-style: italic;
     }
 
+    .documents-section .doc-grid {
+      grid-template-columns: minmax(270px, 0.78fr) minmax(360px, 1fr);
+    }
+
+    .documents-section .doc-intro,
+    .documents-section .document-list {
+      grid-column: auto;
+    }
+
+    .documents-section .doc-intro {
+      position: sticky;
+      top: 28px;
+    }
+
+    .documents-section .brand-glyph {
+      width: clamp(42px, 4vw, 52px);
+      margin-bottom: 34px;
+      opacity: 0.76;
+    }
+
+    .documents-section .note {
+      color: rgba(var(--paper-rgb), 0.68);
+    }
+
+    .documents-section .document-list {
+      grid-template-columns: 1fr;
+      gap: 0;
+    }
+
+    .documents-section .document-list li {
+      min-height: 88px;
+      border-color: rgba(var(--paper-rgb), 0.16);
+      border-bottom: 0;
+      background: transparent;
+      color: rgba(var(--paper-rgb), 0.84);
+      padding: 27px 24px;
+    }
+
+    .documents-section .document-list li:last-child {
+      border-bottom: 1px solid rgba(var(--paper-rgb), 0.16);
+    }
+
+    .documents-section .mark {
+      border-radius: 0;
+      border-color: rgba(var(--neutral-blue-rgb), 0.44);
+      color: var(--neutral-blue);
+    }
+
+    .faq-list {
+      display: grid;
+      gap: 14px;
+      margin-top: 38px;
+    }
+
+    .faq-item {
+      border: 1px solid var(--line);
+      border-radius: 0;
+      background: var(--paper);
+      overflow: hidden;
+    }
+
+    .faq-item summary {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+      padding: 22px 24px;
+      cursor: pointer;
+      list-style: none;
+      color: var(--navy);
+      font-weight: 700;
+    }
+
+    .faq-item summary::-webkit-details-marker {
+      display: none;
+    }
+
+    .faq-item summary::after {
+      flex: 0 0 auto;
+      color: var(--innovation);
+      content: "+";
+      font-size: 1.5rem;
+      line-height: 1;
+    }
+
+    .faq-item[open] summary::after {
+      content: "-";
+    }
+
+    .faq-item p {
+      padding: 0 24px 22px;
+      color: rgba(43, 47, 54, 0.78);
+    }
+
     .final-cta {
       padding: clamp(78px, 8vw, 124px) 0;
-      background:
-        linear-gradient(90deg, rgba(14, 26, 43, 0.94), rgba(43, 47, 54, 0.88)),
-        var(--navy);
+      border-top: 1px solid rgba(var(--innovation-rgb), 0.32);
+      background: linear-gradient(122deg, #0e285c 0%, var(--ink) 48%, #050d1c 100%);
       color: var(--paper);
     }
 
@@ -852,6 +1268,10 @@
       margin-right: auto;
       margin-left: auto;
       color: rgba(250, 251, 252, 0.75);
+    }
+
+    .final-cta .eyebrow {
+      color: var(--neutral-blue);
     }
 
     .final-box .button {
@@ -884,8 +1304,13 @@
     }
 
     .footer-logo {
-      width: min(280px, 58vw);
-      filter: grayscale(1) saturate(0) contrast(1.08);
+      width: min(126px, 24vw);
+    }
+
+    .footer-logo img {
+      display: block;
+      width: 100%;
+      height: auto;
     }
 
     .footer-note {
@@ -895,10 +1320,6 @@
     }
 
     @media (max-width: 980px) {
-      .page-shell {
-        padding-top: 74px;
-      }
-
       .nav {
         min-height: 74px;
       }
@@ -908,28 +1329,27 @@
       }
 
       .hero {
+        display: flex;
+        flex-direction: column;
         height: auto;
         min-height: 100svh;
-        max-height: none;
-        padding: 64px 0 0;
+        padding: 0 0 36px;
         background: var(--navy);
       }
 
       .hero::before {
-        inset: 0 0 auto;
-        width: 100%;
-        height: calc(100% - min(48svh, 460px) + 70px);
-        background:
-          linear-gradient(180deg, var(--navy) 0%, var(--navy) 82%, rgba(13, 26, 43, 0) 100%);
+        content: none;
       }
 
       .hero::after {
-        display: none;
+        content: none;
       }
 
       .hero-media {
-        top: auto;
+        position: relative;
+        inset: auto;
         height: min(48svh, 460px);
+        order: 1;
         background: var(--navy);
       }
 
@@ -937,11 +1357,10 @@
         width: 100%;
         max-width: 100%;
         height: 100%;
-        object-fit: contain;
-        object-position: center bottom;
+        object-fit: cover;
+        object-position: center top;
       }
 
-      .hero-grid,
       .split,
       .quote-wrap,
       .doc-grid,
@@ -949,17 +1368,52 @@
         grid-template-columns: 1fr;
       }
 
+      #analise .analysis-split {
+        grid-template-columns: 1fr;
+      }
+
+      #analise .analysis-copy {
+        position: static;
+      }
+
+      .documents-section .doc-intro {
+        position: static;
+      }
+
+      .documents-section .doc-grid {
+        grid-template-columns: 1fr;
+      }
+
       .hero-grid {
+        order: 2;
         min-height: 0;
         height: auto;
-        align-items: start;
-        align-content: start;
-        padding-bottom: calc(min(48svh, 460px) + 32px);
+        align-items: flex-start;
+        justify-content: flex-start;
+        padding-top: 26px;
+        padding-bottom: 0;
+        text-align: left;
       }
 
       .hero-panel {
         justify-self: start;
         margin: 4px 0 0;
+      }
+
+      .hero-copy .section-lead {
+        margin-right: 0;
+        margin-left: 0;
+      }
+
+      .hero-actions {
+        justify-content: flex-start;
+      }
+
+      .hero-favicon {
+        left: 22px;
+        bottom: auto;
+        top: calc(min(48svh, 460px) - 56px);
+        width: 78px;
       }
 
       .section-head {
@@ -978,6 +1432,8 @@
 
       .wide-visual,
       .analysis-stack .media-panel,
+      #analise .analysis-visual,
+      .firm-photo,
       .doc-visual {
         height: auto;
       }
@@ -989,16 +1445,20 @@
       .step,
       .step:first-child,
       .step:last-child {
-        border: 1px solid rgba(14, 26, 43, 0.16);
-        border-radius: 8px;
+        border-radius: 0;
       }
 
       .step + .step {
-        border-left: 1px solid rgba(14, 26, 43, 0.16);
+        border-left: none;
       }
 
       .final-box .button {
         justify-self: start;
+      }
+
+      .firm-photo figcaption {
+        right: 22px;
+        left: 22px;
       }
     }
 
@@ -1008,7 +1468,7 @@
       }
 
       .brand {
-        min-width: 188px;
+        min-width: 92px;
       }
 
       .button {
@@ -1018,11 +1478,11 @@
       }
 
       .hero {
-        padding: 54px 0 0;
+        padding: 0 0 28px;
       }
 
       .hero-media {
-        height: min(42svh, 380px);
+        height: min(42svh, 360px);
         justify-content: center;
       }
 
@@ -1041,40 +1501,46 @@
       }
 
       .hero::before {
-        height: calc(100% - min(42svh, 380px) + 48px);
+        content: none;
       }
 
       .hero-grid {
+        width: calc(100% - 28px);
+        max-width: calc(100% - 28px);
         min-height: 0;
         gap: 18px;
-        padding-bottom: calc(min(42svh, 380px) + 38px);
+        padding-top: 22px;
+      }
+
+      .hero-favicon {
+        left: 18px;
+        top: calc(min(42svh, 360px) - 46px);
+        width: min(192px, calc(100vw - 36px));
       }
 
       .hero-copy {
+        width: 100%;
+        max-width: 100%;
         padding-top: 0;
       }
 
       .hero-copy h1 {
+        width: 100%;
+        max-width: 100%;
         font-size: clamp(2.2rem, 10.2vw, 3rem);
+        overflow-wrap: break-word;
       }
 
       .hero-copy .section-lead {
+        width: 100%;
+        max-width: 100%;
         margin-top: 14px;
         font-size: 1rem;
         line-height: 1.55;
       }
 
-      .hero-list {
-        display: none;
-      }
-
-      .hero-list li,
       .check-list li {
         font-size: 0.95rem;
-      }
-
-      .hero-list {
-        grid-template-columns: 1fr;
       }
 
       .hero-actions {
@@ -1096,6 +1562,36 @@
       .wide-visual {
         margin-top: 0;
         margin-bottom: 24px;
+      }
+
+      .analysis-caption,
+      .firm-photo figcaption {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 10px;
+      }
+
+      .analysis-caption {
+        gap: 4px;
+        padding-top: 8px;
+      }
+
+      .analysis-caption span {
+        margin-left: 0;
+      }
+
+      .process-head {
+        align-items: flex-start;
+        gap: 18px;
+      }
+
+      .process-head > div {
+        flex: 1;
+      }
+
+      .process-head .brand-glyph {
+        width: 38px;
+        margin-top: 7px;
       }
 
       .case-strip {
@@ -1136,6 +1632,10 @@
       .footer-note {
         text-align: left;
       }
+
+      .footer-logo {
+        width: min(228px, 70vw);
+      }
     }
   </style>
 </head>
@@ -1145,42 +1645,24 @@
   height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <!-- End Google Tag Manager (noscript) -->
   <div class="page-shell">
-    <header class="site-header" aria-label="Cabeçalho">
-      <div class="container nav">
-        <a class="brand" href="#inicio" aria-label="Raposo e Lorenzon Advocacia">
-          <img src="assets/logo-azul.png" alt="Raposo e Lorenzon Advocacia">
-        </a>
-        <nav class="nav-links" aria-label="Navegação principal">
-          <a href="#problema">Situações</a>
-          <a href="#analise">Análise</a>
-          <a href="#processo">Atendimento</a>
-          <a href="#documentos">Documentos</a>
-        </nav>
-        <a class="button secondary" href="https://wa.me/5527988673408?text=Ol%C3%A1%2C%20gostaria%20de%20relatar%20um%20caso%20envolvendo%20voo%20atrasado%2C%20cancelado%20ou%20bagagem%20extraviada." target="_blank" rel="noopener"><svg class="wa-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M19.05 4.91A9.84 9.84 0 0 0 12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.33 4.96L2.05 22l5.25-1.38a9.9 9.9 0 0 0 4.74 1.21h.01c5.46 0 9.91-4.45 9.91-9.91a9.86 9.86 0 0 0-2.91-7.01ZM12.05 20.15h-.01a8.22 8.22 0 0 1-4.19-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.2 8.2 0 0 1-1.25-4.38c0-4.54 3.7-8.24 8.25-8.24a8.18 8.18 0 0 1 5.83 2.42 8.19 8.19 0 0 1 2.41 5.83c-.01 4.54-3.7 8.23-8.25 8.23Zm4.52-6.16c-.25-.12-1.47-.72-1.7-.81-.23-.08-.39-.12-.56.13-.16.25-.64.81-.78.98-.14.16-.29.18-.54.06-.25-.13-1.04-.38-1.99-1.22-.73-.65-1.23-1.46-1.37-1.71-.14-.25-.02-.38.11-.51.11-.11.25-.29.37-.43.12-.14.16-.25.25-.41.08-.16.04-.31-.02-.43-.06-.12-.56-1.35-.77-1.85-.2-.49-.41-.42-.56-.43h-.48c-.16 0-.43.06-.66.31-.23.25-.86.84-.86 2.05s.88 2.38 1 2.54c.12.16 1.73 2.64 4.2 3.7.59.25 1.04.4 1.4.52.59.19 1.12.16 1.54.1.47-.07 1.47-.6 1.67-1.18.21-.58.21-1.07.14-1.18-.06-.1-.22-.16-.47-.29Z"/></svg><span>Relatar caso</span></a>
-      </div>
-    </header>
-
     <main>
       <section class="hero" id="inicio">
         <div class="hero-media" aria-hidden="true">
           <picture>
-            <source srcset="assets/hero-mobile.png" media="(max-width: 980px)">
-            <img src="assets/hero-desktop.png" alt="">
+            <source srcset="assets/mobile (1).jpg" media="(max-width: 980px)">
+            <img src="assets/desktop (5).jpg" alt="">
           </picture>
         </div>
+        <picture class="hero-favicon" aria-hidden="true">
+          <source srcset="assets/BrancoLogoHorizontal.png" media="(max-width: 700px)">
+          <img src="assets/BrancoLogoVertical.png" alt="">
+        </picture>
         <div class="container hero-grid">
           <div class="hero-copy">
-            <p class="eyebrow">Direitos do passageiro aéreo</p>
-            <h1>Seu voo atrasou, foi cancelado ou sua bagagem foi extraviada?</h1>
-            <p class="section-lead">Nem todo transtorno é apenas um imprevisto. Falhas da companhia aérea podem gerar direito à reparação. Entenda se o seu caso tem viabilidade jurídica de forma clara e individualizada.</p>
-            <ul class="hero-list" aria-label="Situações atendidas">
-              <li><span class="mark" aria-hidden="true">✓</span><span>Voo cancelado sem solução adequada</span></li>
-              <li><span class="mark" aria-hidden="true">✓</span><span>Atraso que gerou prejuízo ou perda de compromisso</span></li>
-              <li><span class="mark" aria-hidden="true">✓</span><span>Bagagem extraviada, danificada ou entregue com atraso</span></li>
-              <li><span class="mark" aria-hidden="true">✓</span><span>Falta de assistência durante a espera</span></li>
-            </ul>
+            <h1>A companhia aérea te prejudicou? <span class="hero-highlight">Análise gratuita</span> do seu caso com <span class="hero-highlight">advogado especialista</span>.</h1>
+            <p class="section-lead">Nem todo atraso é <strong>aceito em silêncio</strong>. Falhas da companhia aérea podem gerar <strong>indenização real</strong>, e o primeiro passo é entender se o seu caso <strong>tem fundamento</strong>.</p>
             <div class="hero-actions">
-              <a class="button" href="https://wa.me/5527988673408?text=Ol%C3%A1%2C%20gostaria%20de%20relatar%20um%20caso%20envolvendo%20voo%20atrasado%2C%20cancelado%20ou%20bagagem%20extraviada." target="_blank" rel="noopener"><svg class="wa-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M19.05 4.91A9.84 9.84 0 0 0 12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.33 4.96L2.05 22l5.25-1.38a9.9 9.9 0 0 0 4.74 1.21h.01c5.46 0 9.91-4.45 9.91-9.91a9.86 9.86 0 0 0-2.91-7.01ZM12.05 20.15h-.01a8.22 8.22 0 0 1-4.19-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.2 8.2 0 0 1-1.25-4.38c0-4.54 3.7-8.24 8.25-8.24a8.18 8.18 0 0 1 5.83 2.42 8.19 8.19 0 0 1 2.41 5.83c-.01 4.54-3.7 8.23-8.25 8.23Zm4.52-6.16c-.25-.12-1.47-.72-1.7-.81-.23-.08-.39-.12-.56.13-.16.25-.64.81-.78.98-.14.16-.29.18-.54.06-.25-.13-1.04-.38-1.99-1.22-.73-.65-1.23-1.46-1.37-1.71-.14-.25-.02-.38.11-.51.11-.11.25-.29.37-.43.12-.14.16-.25.25-.41.08-.16.04-.31-.02-.43-.06-.12-.56-1.35-.77-1.85-.2-.49-.41-.42-.56-.43h-.48c-.16 0-.43.06-.66.31-.23.25-.86.84-.86 2.05s.88 2.38 1 2.54c.12.16 1.73 2.64 4.2 3.7.59.25 1.04.4 1.4.52.59.19 1.12.16 1.54.1.47-.07 1.47-.6 1.67-1.18.21-.58.21-1.07.14-1.18-.06-.1-.22-.16-.47-.29Z"/></svg><span>Relatar meu caso pelo WhatsApp</span></a>
+              <a class="button" href="https://wa.me/5527988673408?text=Ol%C3%A1%2C%20gostaria%20de%20relatar%20um%20caso%20envolvendo%20voo%20atrasado%2C%20cancelado%20ou%20bagagem%20extraviada." target="_blank" rel="noopener"><svg class="wa-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M19.05 4.91A9.84 9.84 0 0 0 12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.33 4.96L2.05 22l5.25-1.38a9.9 9.9 0 0 0 4.74 1.21h.01c5.46 0 9.91-4.45 9.91-9.91a9.86 9.86 0 0 0-2.91-7.01ZM12.05 20.15h-.01a8.22 8.22 0 0 1-4.19-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.2 8.2 0 0 1-1.25-4.38c0-4.54 3.7-8.24 8.25-8.24a8.18 8.18 0 0 1 5.83 2.42 8.19 8.19 0 0 1 2.41 5.83c-.01 4.54-3.7 8.23-8.25 8.23Zm4.52-6.16c-.25-.12-1.47-.72-1.7-.81-.23-.08-.39-.12-.56.13-.16.25-.64.81-.78.98-.14.16-.29.18-.54.06-.25-.13-1.04-.38-1.99-1.22-.73-.65-1.23-1.46-1.37-1.71-.14-.25-.02-.38.11-.51.11-.11.25-.29.37-.43.12-.14.16-.25.25-.41.08-.16.04-.31-.02-.43-.06-.12-.56-1.35-.77-1.85-.2-.49-.41-.42-.56-.43h-.48c-.16 0-.43.06-.66.31-.23.25-.86.84-.86 2.05s.88 2.38 1 2.54c.12.16 1.73 2.64 4.2 3.7.59.25 1.04.4 1.4.52.59.19 1.12.16 1.54.1.47-.07 1.47-.6 1.67-1.18.21-.58.21-1.07.14-1.18-.06-.1-.22-.16-.47-.29Z"/></svg><span>Solicitar análise gratuita</span></a>
             </div>
           </div>
           <aside class="hero-panel" aria-label="Atendimento jurídico">
@@ -1219,62 +1701,97 @@
         </div>
       </section>
 
-      <section class="section sand" id="problema">
+      <section class="section process-section" id="processo">
+        <div class="container">
+          <div class="process-head">
+            <div>
+              <p class="eyebrow">Processo de atendimento</p>
+              <h2>Como funciona a análise do seu caso</h2>
+            </div>
+            <img class="brand-glyph" src="assets/Ícone_1.png" alt="" aria-hidden="true">
+          </div>
+          <div class="steps" aria-label="Etapas da análise">
+            <article class="step">
+              <h3>Você conta o que aconteceu</h3>
+              <p>Explique a situação da sua viagem e os prejuízos que a falha da companhia causou.</p>
+            </article>
+            <article class="step">
+              <h3>A gente analisa seus documentos</h3>
+              <p>Verificamos bilhetes, comprovantes, prints, protocolos e demais registros disponíveis.</p>
+            </article>
+            <article class="step">
+              <h3>Você entende seus direitos com clareza</h3>
+              <p>Apresentamos a leitura jurídica do caso de forma objetiva, sem juridiquês.</p>
+            </article>
+            <article class="step">
+              <h3>Se tiver base legal, conduzimos o caso</h3>
+              <p>Havendo fundamento, orientamos os próximos passos e conduzimos a demanda com responsabilidade.</p>
+            </article>
+          </div>
+          <div class="center-action">
+            <a class="button" href="https://wa.me/5527988673408?text=Ol%C3%A1%2C%20gostaria%20de%20relatar%20um%20caso%20envolvendo%20voo%20atrasado%2C%20cancelado%20ou%20bagagem%20extraviada." target="_blank" rel="noopener"><svg class="wa-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M19.05 4.91A9.84 9.84 0 0 0 12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.33 4.96L2.05 22l5.25-1.38a9.9 9.9 0 0 0 4.74 1.21h.01c5.46 0 9.91-4.45 9.91-9.91a9.86 9.86 0 0 0-2.91-7.01ZM12.05 20.15h-.01a8.22 8.22 0 0 1-4.19-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.2 8.2 0 0 1-1.25-4.38c0-4.54 3.7-8.24 8.25-8.24a8.18 8.18 0 0 1 5.83 2.42 8.19 8.19 0 0 1 2.41 5.83c-.01 4.54-3.7 8.23-8.25 8.23Zm4.52-6.16c-.25-.12-1.47-.72-1.7-.81-.23-.08-.39-.12-.56.13-.16.25-.64.81-.78.98-.14.16-.29.18-.54.06-.25-.13-1.04-.38-1.99-1.22-.73-.65-1.23-1.46-1.37-1.71-.14-.25-.02-.38.11-.51.11-.11.25-.29.37-.43.12-.14.16-.25.25-.41.08-.16.04-.31-.02-.43-.06-.12-.56-1.35-.77-1.85-.2-.49-.41-.42-.56-.43h-.48c-.16 0-.43.06-.66.31-.23.25-.86.84-.86 2.05s.88 2.38 1 2.54c.12.16 1.73 2.64 4.2 3.7.59.25 1.04.4 1.4.52.59.19 1.12.16 1.54.1.47-.07 1.47-.6 1.67-1.18.21-.58.21-1.07.14-1.18-.06-.1-.22-.16-.47-.29Z"/></svg><span>Solicitar análise do caso</span></a>
+          </div>
+        </div>
+      </section>
+
+      <section class="section dark" id="problema">
         <div class="container">
           <div class="section-head">
             <div>
-              <p class="eyebrow">Conscientização</p>
-              <h2 class="problem-title">Nem todo atraso é só um contratempo.</h2>
+              <h2 class="problem-title">Esses prejuízos podem ter consequência jurídica.</h2>
             </div>
-            <p class="section-lead">Para muitas pessoas, um voo cancelado ou uma bagagem extraviada significa perder uma reunião, uma viagem planejada, uma diária de hotel, um compromisso familiar ou até horas de espera sem orientação clara. O problema não está apenas no atraso em si, mas na assistência oferecida e nos prejuízos causados.</p>
+            <p class="section-lead"><strong>Perder uma reunião importante. Chegar atrasado em um compromisso. Gastar com hotel, alimentação ou transporte por causa da companhia aérea.</strong> Para muitas pessoas, um <strong>voo cancelado</strong> ou uma <strong>bagagem extraviada</strong> significa prejuízos concretos. O problema não está apenas no atraso em si, mas na <strong>assistência oferecida</strong> e nos <strong>prejuízos causados</strong>.</p>
           </div>
           <figure class="media-panel wide-visual">
-            <img src="assets/passageiro-atraso.png" alt="Passageiro em aeroporto analisando informações sobre seu voo pelo celular">
+            <img src="ChatGPT Image 22 de mai. de 2026, 15_54_01.png" alt="Passageiro em terminal observando um avião pela janela do aeroporto">
           </figure>
           <div class="cards-grid">
             <article class="card">
               <span class="icon" aria-hidden="true">
-                <svg viewBox="0 0 24 24"><path d="M3 21h18"/><path d="M5 16l14-7"/><path d="M7 9l5 5"/><path d="M13 5l6 4"/></svg>
+                <i class="bi bi-airplane-engines"></i>
               </span>
               <h3>Cancelamento de voo</h3>
               <p>Quando a viagem é interrompida ou remarcada sem solução adequada.</p>
             </article>
             <article class="card">
               <span class="icon" aria-hidden="true">
-                <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>
+                <i class="bi bi-clock-history"></i>
               </span>
               <h3>Atraso prolongado</h3>
               <p>Quando a espera causa prejuízos concretos ou transtornos relevantes.</p>
             </article>
             <article class="card">
               <span class="icon" aria-hidden="true">
-                <svg viewBox="0 0 24 24"><path d="M8 7V5a3 3 0 0 1 3-3h2a3 3 0 0 1 3 3v2"/><rect x="5" y="7" width="14" height="14" rx="2"/><path d="M9 21v-4"/><path d="M15 21v-4"/></svg>
+                <i class="bi bi-suitcase-lg"></i>
               </span>
               <h3>Extravio de bagagem</h3>
               <p>Quando pertences são perdidos, entregues com atraso ou danificados.</p>
             </article>
             <article class="card">
               <span class="icon" aria-hidden="true">
-                <svg viewBox="0 0 24 24"><path d="M12 20h9"/><path d="M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4Z"/><path d="M15 5l4 4"/></svg>
+                <i class="bi bi-headset"></i>
               </span>
               <h3>Falta de assistência</h3>
               <p>Quando o passageiro fica sem informação, suporte ou alternativas razoáveis.</p>
             </article>
           </div>
+          <div class="center-action">
+            <a class="button" href="https://wa.me/5527988673408?text=Ol%C3%A1%2C%20gostaria%20de%20relatar%20um%20caso%20envolvendo%20voo%20atrasado%2C%20cancelado%20ou%20bagagem%20extraviada." target="_blank" rel="noopener"><svg class="wa-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M19.05 4.91A9.84 9.84 0 0 0 12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.33 4.96L2.05 22l5.25-1.38a9.9 9.9 0 0 0 4.74 1.21h.01c5.46 0 9.91-4.45 9.91-9.91a9.86 9.86 0 0 0-2.91-7.01ZM12.05 20.15h-.01a8.22 8.22 0 0 1-4.19-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.2 8.2 0 0 1-1.25-4.38c0-4.54 3.7-8.24 8.25-8.24a8.18 8.18 0 0 1 5.83 2.42 8.19 8.19 0 0 1 2.41 5.83c-.01 4.54-3.7 8.23-8.25 8.23Zm4.52-6.16c-.25-.12-1.47-.72-1.7-.81-.23-.08-.39-.12-.56.13-.16.25-.64.81-.78.98-.14.16-.29.18-.54.06-.25-.13-1.04-.38-1.99-1.22-.73-.65-1.23-1.46-1.37-1.71-.14-.25-.02-.38.11-.51.11-.11.25-.29.37-.43.12-.14.16-.25.25-.41.08-.16.04-.31-.02-.43-.06-.12-.56-1.35-.77-1.85-.2-.49-.41-.42-.56-.43h-.48c-.16 0-.43.06-.66.31-.23.25-.86.84-.86 2.05s.88 2.38 1 2.54c.12.16 1.73 2.64 4.2 3.7.59.25 1.04.4 1.4.52.59.19 1.12.16 1.54.1.47-.07 1.47-.6 1.67-1.18.21-.58.21-1.07.14-1.18-.06-.1-.22-.16-.47-.29Z"/></svg><span>Entender se meu caso tem solução</span></a>
+          </div>
         </div>
       </section>
 
-      <section class="section" id="analise">
-        <div class="container split">
-          <div>
-            <p class="eyebrow">Viabilidade jurídica</p>
+      <section class="section analysis-section" id="analise">
+        <div class="container analysis-split">
+          <figure class="analysis-figure">
+            <div class="media-panel analysis-visual">
+              <img src="assets/IMG_6855-2 (1).jpg" alt="Atendimento jurídico a passageiro em ambiente profissional">
+            </div>
+            <figcaption class="analysis-caption">Raposo &amp; Lorenzon <span>Advocacia e consultoria</span></figcaption>
+          </figure>
+          <div class="analysis-copy">
             <h2>A viabilidade jurídica depende da análise dos fatos.</h2>
             <p class="section-lead">A possibilidade de reparação é avaliada a partir de fatores como o tempo do atraso, o motivo do problema, a assistência prestada pela companhia e os prejuízos que você sofreu. Por isso, antes de falar em indenização, o passo fundamental é organizar o que aconteceu e verificar as provas.</p>
-          </div>
-          <div class="analysis-stack">
-            <figure class="media-panel">
-              <img src="assets/analise-documental.png" alt="Documentos de viagem sendo analisados em mesa de trabalho jurídica">
-            </figure>
             <div class="check-panel">
               <ul class="check-list" aria-label="Fatores analisados">
                 <li><span class="mark" aria-hidden="true">✓</span><span>Tempo de atraso ou cancelamento</span></li>
@@ -1289,10 +1806,9 @@
         </div>
       </section>
 
-      <section class="section dark">
+      <section class="section dark statement-band">
         <div class="container quote-wrap">
           <div>
-            <p class="eyebrow">Orientação inicial</p>
             <h2>Você não precisa ter certeza do seu direito antes de procurar orientação.</h2>
             <p class="section-lead">Muitos passageiros desistem de buscar apoio porque acreditam que “não vale a pena”, que “foi só um atraso” ou que a empresa sempre tem razão. Mas a sua dúvida inicial não precisa ser respondida sozinho. A primeira etapa é justamente organizar os fatos e ver se há base legal.</p>
           </div>
@@ -1300,39 +1816,19 @@
         </div>
       </section>
 
-      <section class="section taupe" id="processo">
+      <section class="section firm-section" id="escritorio">
         <div class="container">
-          <p class="eyebrow">Processo de atendimento</p>
-          <h2>Como funciona a análise do seu caso</h2>
-          <div class="steps" aria-label="Etapas da análise">
-            <article class="step">
-              <h3>Relato da situação</h3>
-              <p>Você informa exatamente o que aconteceu durante a sua viagem.</p>
-            </article>
-            <article class="step">
-              <h3>Verificação documental</h3>
-              <p>Analisamos seus bilhetes, comprovantes, prints e protocolos de atendimento.</p>
-            </article>
-            <article class="step">
-              <h3>Orientação jurídica</h3>
-              <p>O escritório avalia a viabilidade com clareza e sem uso de juridiquês.</p>
-            </article>
-            <article class="step">
-              <h3>Condução do caso</h3>
-              <p>Havendo base legal, você recebe a orientação completa sobre as medidas cabíveis.</p>
-            </article>
+          <div class="firm-head">
+            <div>
+              <p class="eyebrow">Raposo e Lorenzon Advocacia</p>
+              <h2>Nem sempre o passageiro sabe se realmente possui direitos.</h2>
+              <p class="section-lead">É exatamente para isso que serve a análise inicial: entender a falha, os prejuízos e se há base legal para conduzir o caso.</p>
+            </div>
           </div>
-          <div class="center-action">
-            <a class="button" href="https://wa.me/5527988673408?text=Ol%C3%A1%2C%20gostaria%20de%20relatar%20um%20caso%20envolvendo%20voo%20atrasado%2C%20cancelado%20ou%20bagagem%20extraviada." target="_blank" rel="noopener"><svg class="wa-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M19.05 4.91A9.84 9.84 0 0 0 12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.33 4.96L2.05 22l5.25-1.38a9.9 9.9 0 0 0 4.74 1.21h.01c5.46 0 9.91-4.45 9.91-9.91a9.86 9.86 0 0 0-2.91-7.01ZM12.05 20.15h-.01a8.22 8.22 0 0 1-4.19-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.2 8.2 0 0 1-1.25-4.38c0-4.54 3.7-8.24 8.25-8.24a8.18 8.18 0 0 1 5.83 2.42 8.19 8.19 0 0 1 2.41 5.83c-.01 4.54-3.7 8.23-8.25 8.23Zm4.52-6.16c-.25-.12-1.47-.72-1.7-.81-.23-.08-.39-.12-.56.13-.16.25-.64.81-.78.98-.14.16-.29.18-.54.06-.25-.13-1.04-.38-1.99-1.22-.73-.65-1.23-1.46-1.37-1.71-.14-.25-.02-.38.11-.51.11-.11.25-.29.37-.43.12-.14.16-.25.25-.41.08-.16.04-.31-.02-.43-.06-.12-.56-1.35-.77-1.85-.2-.49-.41-.42-.56-.43h-.48c-.16 0-.43.06-.66.31-.23.25-.86.84-.86 2.05s.88 2.38 1 2.54c.12.16 1.73 2.64 4.2 3.7.59.25 1.04.4 1.4.52.59.19 1.12.16 1.54.1.47-.07 1.47-.6 1.67-1.18.21-.58.21-1.07.14-1.18-.06-.1-.22-.16-.47-.29Z"/></svg><span>Falar com um advogado sobre meu voo</span></a>
-          </div>
-        </div>
-      </section>
-
-      <section class="section dark">
-        <div class="container">
-          <p class="eyebrow">Autoridade</p>
-          <h2>Atuação jurídica com seriedade em conflitos aéreos.</h2>
-          <p class="section-lead">Raposo e Lorenzon Advocacia atua com foco em orientação jurídica clara e condução responsável de demandas envolvendo falhas na prestação de serviços. Cada caso é tratado a partir da realidade jurídica e respeito ético.</p>
+          <figure class="media-panel firm-photo">
+            <img src="assets/7.jpg" alt="Advogados Raposo e Lorenzon em retrato institucional">
+            <figcaption><span>Atendimento especializado</span><span>Raposo &amp; Lorenzon</span></figcaption>
+          </figure>
           <div class="pillars">
             <article class="pillar">
               <span class="pillar-icon" aria-hidden="true">
@@ -1356,19 +1852,19 @@
               <p>Orientação direta para o cliente entender o cenário, sem falsas promessas.</p>
             </article>
           </div>
+          <div class="center-action">
+            <a class="button" href="https://wa.me/5527988673408?text=Ol%C3%A1%2C%20gostaria%20de%20relatar%20um%20caso%20envolvendo%20voo%20atrasado%2C%20cancelado%20ou%20bagagem%20extraviada." target="_blank" rel="noopener"><svg class="wa-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M19.05 4.91A9.84 9.84 0 0 0 12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.33 4.96L2.05 22l5.25-1.38a9.9 9.9 0 0 0 4.74 1.21h.01c5.46 0 9.91-4.45 9.91-9.91a9.86 9.86 0 0 0-2.91-7.01ZM12.05 20.15h-.01a8.22 8.22 0 0 1-4.19-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.2 8.2 0 0 1-1.25-4.38c0-4.54 3.7-8.24 8.25-8.24a8.18 8.18 0 0 1 5.83 2.42 8.19 8.19 0 0 1 2.41 5.83c-.01 4.54-3.7 8.23-8.25 8.23Zm4.52-6.16c-.25-.12-1.47-.72-1.7-.81-.23-.08-.39-.12-.56.13-.16.25-.64.81-.78.98-.14.16-.29.18-.54.06-.25-.13-1.04-.38-1.99-1.22-.73-.65-1.23-1.46-1.37-1.71-.14-.25-.02-.38.11-.51.11-.11.25-.29.37-.43.12-.14.16-.25.25-.41.08-.16.04-.31-.02-.43-.06-.12-.56-1.35-.77-1.85-.2-.49-.41-.42-.56-.43h-.48c-.16 0-.43.06-.66.31-.23.25-.86.84-.86 2.05s.88 2.38 1 2.54c.12.16 1.73 2.64 4.2 3.7.59.25 1.04.4 1.4.52.59.19 1.12.16 1.54.1.47-.07 1.47-.6 1.67-1.18.21-.58.21-1.07.14-1.18-.06-.1-.22-.16-.47-.29Z"/></svg><span>Contar o que aconteceu</span></a>
+          </div>
         </div>
       </section>
 
-      <section class="section sand" id="documentos">
+      <section class="section dark documents-section" id="documentos">
         <div class="container doc-grid">
           <div class="doc-intro">
-            <p class="eyebrow">Checklist</p>
+            <img class="brand-glyph" src="assets/BrancoÍcone.png" alt="" aria-hidden="true">
             <h2>O que ajuda na análise do seu caso?</h2>
             <p class="section-lead">Quanto mais informações você reunir, mais precisa será a nossa avaliação inicial.</p>
-            <p class="note">Não tem todos os documentos em mãos? Não se preocupe. É possível fazer um relato inicial com as informações que você já possui.</p>
-            <figure class="media-panel doc-visual">
-              <img src="assets/checklist-viagem.png" alt="Documentos de viagem organizados para análise jurídica">
-            </figure>
+            <p class="note">Mesmo sem todos os documentos, ainda é possível realizar uma análise inicial do caso.</p>
           </div>
           <ul class="document-list" aria-label="Documentos necessários">
             <li><span class="mark" aria-hidden="true">✓</span><span>Cartão de embarque ou passagem</span></li>
@@ -1381,13 +1877,42 @@
         </div>
       </section>
 
+      <section class="section faq-section" id="faq">
+        <div class="container">
+          <p class="eyebrow">Perguntas frequentes</p>
+          <h2>Dúvidas comuns antes de iniciar a análise</h2>
+          <div class="faq-list">
+            <details class="faq-item">
+              <summary>Preciso pagar pela análise inicial?</summary>
+              <p>Não. A proposta desta etapa é entender os fatos, verificar os documentos disponíveis e esclarecer se o seu caso pode ter fundamento jurídico.</p>
+            </details>
+            <details class="faq-item">
+              <summary>Posso resolver tudo online?</summary>
+              <p>Sim. O atendimento pode ser feito de forma digital, com envio de documentos e orientação remota, o que facilita para quem está viajando ou mora em outra cidade.</p>
+            </details>
+            <details class="faq-item">
+              <summary>Preciso ter todos os comprovantes?</summary>
+              <p>Não necessariamente. Mesmo sem todos os documentos, já é possível fazer uma análise inicial com o que você tiver em mãos e indicar o que ainda pode ajudar.</p>
+            </details>
+            <details class="faq-item">
+              <summary>Quanto tempo tenho para buscar meus direitos?</summary>
+              <p>O prazo pode variar conforme a situação concreta do caso. Por isso, vale buscar orientação o quanto antes para avaliar o cenário com segurança.</p>
+            </details>
+            <details class="faq-item">
+              <summary>Problema climático impede análise?</summary>
+              <p>Não impede. Mesmo quando a companhia alega condições climáticas, é importante analisar como houve a comunicação, a assistência prestada e os prejuízos sofridos.</p>
+            </details>
+          </div>
+        </div>
+      </section>
+
       <section class="final-cta" id="contato">
         <div class="container">
           <div class="final-box">
             <div>
               <p class="eyebrow">Análise inicial</p>
-              <h2>Se a falha causou prejuízo, vale a pena entender suas opções.</h2>
-              <p class="section-lead">O primeiro passo não é prometer indenizações, mas analisar com responsabilidade o que aconteceu e se o seu caso apresenta elementos sólidos para uma atuação jurídica.</p>
+              <h2>Se a companhia falhou, você não precisa aceitar o prejuízo em silêncio.</h2>
+              <p class="section-lead">A análise inicial pode esclarecer quais caminhos são possíveis para o seu caso.</p>
             </div>
             <a class="button" href="https://wa.me/5527988673408?text=Ol%C3%A1%2C%20gostaria%20de%20relatar%20um%20caso%20envolvendo%20voo%20atrasado%2C%20cancelado%20ou%20bagagem%20extraviada." target="_blank" rel="noopener"><svg class="wa-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M19.05 4.91A9.84 9.84 0 0 0 12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.33 4.96L2.05 22l5.25-1.38a9.9 9.9 0 0 0 4.74 1.21h.01c5.46 0 9.91-4.45 9.91-9.91a9.86 9.86 0 0 0-2.91-7.01ZM12.05 20.15h-.01a8.22 8.22 0 0 1-4.19-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.2 8.2 0 0 1-1.25-4.38c0-4.54 3.7-8.24 8.25-8.24a8.18 8.18 0 0 1 5.83 2.42 8.19 8.19 0 0 1 2.41 5.83c-.01 4.54-3.7 8.23-8.25 8.23Zm4.52-6.16c-.25-.12-1.47-.72-1.7-.81-.23-.08-.39-.12-.56.13-.16.25-.64.81-.78.98-.14.16-.29.18-.54.06-.25-.13-1.04-.38-1.99-1.22-.73-.65-1.23-1.46-1.37-1.71-.14-.25-.02-.38.11-.51.11-.11.25-.29.37-.43.12-.14.16-.25.25-.41.08-.16.04-.31-.02-.43-.06-.12-.56-1.35-.77-1.85-.2-.49-.41-.42-.56-.43h-.48c-.16 0-.43.06-.66.31-.23.25-.86.84-.86 2.05s.88 2.38 1 2.54c.12.16 1.73 2.64 4.2 3.7.59.25 1.04.4 1.4.52.59.19 1.12.16 1.54.1.47-.07 1.47-.6 1.67-1.18.21-.58.21-1.07.14-1.18-.06-.1-.22-.16-.47-.29Z"/></svg><span>Iniciar análise do caso</span></a>
           </div>
@@ -1397,21 +1922,13 @@
 
     <footer class="site-footer">
       <div class="container footer-inner">
-        <img class="footer-logo" src="assets/logo-clara.png" alt="Raposo e Lorenzon Advocacia">
+        <picture class="footer-logo">
+          <source srcset="assets/BrancoLogoHorizontal.png" media="(max-width: 700px)">
+          <img src="assets/BrancoLogoVertical.png" alt="Raposo e Lorenzon Advocacia">
+        </picture>
         <p class="footer-note">Atendimento jurídico informativo, responsável e individualizado para demandas envolvendo falhas na prestação de serviços aéreos.</p>
       </div>
     </footer>
   </div>
-  <script>
-    const header = document.querySelector(".site-header");
-    const updateHeader = () => {
-      if (header) {
-        header.classList.toggle("is-scrolled", window.scrollY > 80);
-      }
-    };
-
-    updateHeader();
-    window.addEventListener("scroll", updateHeader, { passive: true });
-  </script>
 </body>
 </html>
